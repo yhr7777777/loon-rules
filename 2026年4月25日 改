@@ -184,15 +184,9 @@ const rules = [
   // 自定义规则
   "DOMAIN-KEYWORD,ping0,节点测试",
   "DOMAIN-SUFFIX,pingip.cn,节点测试",
+  "DOMAIN-SUFFIX,ipip.la,节点测试",
+  "DOMAIN-SUFFIX,ippure.com,节点测试",
   "DOMAIN-KEYWORD,tello,美国-手动",
-  "DOMAIN-SUFFIX,bing.com,节点选择",
-  "DOMAIN-SUFFIX,microsoft.com,节点选择",
-  "DOMAIN-SUFFIX,live.com,节点选择",
-  "DOMAIN-SUFFIX,msn.com,节点选择",
-  "DOMAIN-SUFFIX,office.com,节点选择",
-  "DOMAIN-SUFFIX,outlook.com,节点选择",
-  "DOMAIN-SUFFIX,skype.com,节点选择",
-
   "DOMAIN-SUFFIX,googleapis.cn,节点选择", // Google服务
   "DOMAIN-SUFFIX,gstatic.com,节点选择", // Google静态资源
   "DOMAIN-SUFFIX,xn--ngstr-lra8j.com,节点选择", // Google Play下载服务
