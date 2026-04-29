@@ -1,0 +1,43 @@
+! --- 1. 恢复核心视频流请求，避免转圈 ---
+@@||googlevideo.com/videoplayback$xhr,3p,domain=youtube.com
+
+! --- 2. 移除干扰元素，使用更安全的过滤方式 ---
+youtube.com##ytd-ad-slot-renderer
+youtube.com##ytd-rich-item-renderer:has(ytd-ad-slot-renderer)
+youtube.com##ytd-player-legacy-desktop-watch-ads-renderer
+
+! --- 3. 针对“检测到屏蔽器”报错的精准跳过 (AdGuard 专用) ---
+youtube.com#%#//scriptlet("adjust-setTimeout", "adBlockDetected", "1000")
+youtube.com#%#//scriptlet("set-constant", "yt.config_.CHECK_FOR_ADBLOCKER_ON_PLAYBACK", "false")
+youtube.com#%#//scriptlet("set-constant", "yt.config_.WEB_PLAYER_CONTEXT_CONFIGS.ad_placement_config", "undefined")
+
+! --- 4. 暴力关闭可能弹出的屏蔽提示层 ---
+youtube.com##ytd-enforcement-message-view-model
+youtube.com##tp-yt-paper-dialog:has(yt-enforcement-message-view-model)
+
+91pn136.cc##a[target="_blank"]
+91pn136.cc##img[src*=".cc"]
+91pn136.cc##iframe
+91pn136.cc##.banner
+91pn136.cc##div[class*="ads"]
+
+
+! == ping0.cc 安全去广告规则 ==
+! 仅精确匹配底层元素，防止网页白屏或崩溃
+
+! 1. 精确隐藏“关闭 广告”的内联元素（避开全局 DIV，只针对按钮/链接/内联标签）
+ping0.cc##a:has-text(关闭 广告)
+ping0.cc##span:has-text(关闭 广告)
+ping0.cc##button:has-text(关闭 广告)
+
+! 2. 隐藏特定文字占位符的内联元素
+ping0.cc##span:has-text(80 x 300)
+ping0.cc##span:has-text(30 x 300)
+
+! 3. 隐藏底部的广告招租联系方式
+ping0.cc##a[href*="t.me/heyxiun"]
+
+! 4. 拦截可能存在的第三方广告框架或图片
+ping0.cc##iframe[width="300"]
+ping0.cc##img[src*="banner"]
+ping0.cc##img[src*="/ads/"]
